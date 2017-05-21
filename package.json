@@ -1,0 +1,45 @@
+{
+  "name": "npm-build-tool",
+  "version": "1.0.3",
+  "description": "This is npm build tool",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test",
+    "start:dev": "node server 4000",
+    "lint": "jshint --exclude ./lib/*.js *.js **/*.js",
+    "compile:coffee": "coffee --compile --output ./lib ./src/coffeescripts",
+    "compile:typescript": "tsc  --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
+    "compile": "npm run compile:coffee && npm run compile:typescript",
+    "precompile": "npm run clean",
+    "clean": "rimraf lib/*",
+    "build:less": "lessc client/less/demo.less public/css/site.css",
+    "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/bundle.js",
+    "build:clean": "rimraf public/css/*, public/js/*",
+    "prebuild": "npm run build:clean",
+    "build": "npm run build:less && npm run build:bundle",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch"
+  },
+  "jshintConfig": {
+    "esnext": "true"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^14.3.0",
+    "coffee-script": "^1.12.6",
+    "jshint": "^2.9.4",
+    "less": "^2.7.2",
+    "mocha": "^3.4.1",
+    "rimraf": "^2.6.1",
+    "should": "^11.2.1",
+    "supertest": "^3.0.0",
+    "typescript": "^2.3.2",
+    "uglify-js": "^3.0.10",
+    "uglifyjs": "^2.4.11"
+  },
+  "dependencies": {
+    "koa": "^2.2.0"
+  }
+}
