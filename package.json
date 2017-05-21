@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha test",
     "start:dev": "node server 4000",
-    "lint": "jshint  --exclude ./node_modules && jshint *.js ./client/**/*.js ./test/*.js",    
+    "lint": "jshint  --exclude ./node_modules && jshint *.js ./client/**/*.js ./test/*.js",
     "pretest": "npm run lint",
     "compile:coffee": "coffee --compile --output ./lib ./src/coffeescripts",
     "compile:typescript": "tsc  --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
@@ -23,9 +23,9 @@
     "version:patch": "npm version patch",
     "push:heroku": "git push heroku master"
   },
-  "engines" : {
+  "engines": {
     "node": "~7.10.0",
-    "npm" : "4.2.0"
+    "npm": "~4.2.0"
   },
   "jshintConfig": {
     "esnext": "true"
@@ -46,6 +46,7 @@
     "uglifyjs": "^2.4.11"
   },
   "dependencies": {
-    "koa": "^2.2.0"
+    "koa": "^2.2.0",
+    "swig": "^1.4.2"
   }
 }
