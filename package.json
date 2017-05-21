@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha test",
     "start:dev": "node server 4000",
-    "lint": "jshint --exclude ./lib/*.js *.js **/*.js",
+    "lint": "jshint  --exclude ./node_modules && jshint *.js ./client/**/*.js ./test/*.js",    
+    "pretest": "npm run lint",
     "compile:coffee": "coffee --compile --output ./lib ./src/coffeescripts",
     "compile:typescript": "tsc  --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
     "compile": "npm run compile:coffee && npm run compile:typescript",
