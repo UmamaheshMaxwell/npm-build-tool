@@ -20,7 +20,12 @@
     "build": "npm run build:less && npm run build:bundle",
     "version:major": "npm version major",
     "version:minor": "npm version minor",
-    "version:patch": "npm version patch"
+    "version:patch": "npm version patch",
+    "push:heroku": "git push heroku master"
+  },
+  "engines" : {
+    "node": "~7.10.0",
+    "npm" : "4.2.0"
   },
   "jshintConfig": {
     "esnext": "true"
